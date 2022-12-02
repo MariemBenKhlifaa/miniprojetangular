@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Contrat } from 'src/app/core/model/contrat';
 import { ContratService } from 'src/app/core/services/contrat.service';
 
 @Component({
@@ -19,13 +20,13 @@ export class ListContratComponent implements OnInit {
       console.log(this.listcontrats);
     
     }
-
-
-
 )
- 
-  
    
 }
-
+delete(c: Contrat) {
+  let i = this.listcontrats.indexOf(c);
+this.contratservice.deleteContrat(c.idContrat).subscribe(
+    ()=>this.listcontrats.splice(i, 1)
+  )
+}
 }

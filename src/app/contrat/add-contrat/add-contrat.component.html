@@ -1,0 +1,79 @@
+<div class="container py-6">
+  <div class="row">
+      <div class="col-lg-10">
+          <div class="card mx-10">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                  <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                  <h6 class="text-white text-capitalize ps-3">ADD EQUIPE</h6>
+                  </div>
+                  <div class="col-lg-9 col-md-12 col-xs-12 pl-0 user-dash2">
+                    <div><br><br></div>
+                      <div class="dashborad-box">
+                        <div class="dashborad-box mb-0">
+                          <div class="section-inforamation">
+                  <form #f="ngForm" >
+                       <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                          <label>date debut</label>
+                          <input type="date" [(ngModel)]="contrat.dateDebutContrat" name="dateDebutContrat"
+                          class="form-control" 
+                          #t="ngModel">
+                        </div>
+                      </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                        <label>date fin</label>
+                        <input type="date" #p="ngModel" [(ngModel)]="contrat.dateFinContrat"name="dateFinContrat" class="form-control" required>
+                        <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
+                        this field is required
+                        </div>
+                    </div> 
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                      <label>montant</label>
+                      <input type="number" #p="ngModel" [(ngModel)]="contrat.montantContrat"name="montantContrat" class="form-control" required>
+                      <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
+                      this field is required
+                      </div>
+                  </div> 
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">  
+                          <label> specialite</label>
+                    <input type="text" #p="ngModel" [(ngModel)]="contrat.specialite"name="specialite" class="form-control" required>
+                    <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
+                    this field is required
+                    </div>
+                    
+                </div> </div> 
+                <div class="col-lg-6">
+                    <div class="form-group">  
+                      <label> archive</label>
+                <input type="text" #p="ngModel" [(ngModel)]="contrat.archive"name="archive" class="form-control" required>
+                <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
+                this field is required
+                </div>
+                
+            </div> </div> 
+              
+                      <br>
+                      <button class="btn btn-success" (click)="saveContrat()"
+                      [disabled]="f.invalid">
+                          save
+                      </button>
+                      &nbsp;
+                      <button type="reset" class="btn btn-warning">
+                          reset
+                      </button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div></div></div>
