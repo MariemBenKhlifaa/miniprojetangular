@@ -4,7 +4,7 @@
           <div class="card mx-10">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                   <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                  <h6 class="text-white text-capitalize ps-3">ADD EQUIPE</h6>
+                  <h6 class="text-white text-capitalize ps-3">ADD CONTRAT</h6>
                   </div>
                   <div class="col-lg-9 col-md-12 col-xs-12 pl-0 user-dash2">
                     <div><br><br></div>
@@ -16,7 +16,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                           <label>date debut</label>
-                          <input type="date" [(ngModel)]="contrat.dateDebutContrat" name="dateDebutContrat"
+                          <input  class="form-control" type="date" [(ngModel)]="contrat.dateDebutContrat" name="dateDebutContrat"
                           class="form-control" 
                           #t="ngModel">
                         </div>
@@ -25,7 +25,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                         <label>date fin</label>
-                        <input type="date" #p="ngModel" [(ngModel)]="contrat.dateFinContrat"name="dateFinContrat" class="form-control" required>
+                        <input  class="form-control"  type="date" #p="ngModel" [(ngModel)]="contrat.dateFinContrat"name="dateFinContrat" class="form-control" required>
                         <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
                         this field is required
                         </div>
@@ -34,41 +34,45 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                       <label>montant</label>
-                      <input type="number" #p="ngModel" [(ngModel)]="contrat.montantContrat"name="montantContrat" class="form-control" required>
+                      <input  class="form-control" placeholder= " montant de Contrat"  type="number" #p="ngModel" [(ngModel)]="contrat.montantContrat"name="montantContrat" class="form-control" required>
                       <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
                       this field is required
                       </div>
                   </div> 
                     </div>
                     
-                    <div class="col-lg-6">
+                         <div class="col-lg-6">
                         <div class="form-group">  
                           <label> specialite</label>
-                    <input type="text" #p="ngModel" [(ngModel)]="contrat.specialite"name="specialite" class="form-control" required>
+                    <input class="form-control"  placeholder= " specialite"  type="text" #p="ngModel" [(ngModel)]="contrat.specialite"name="specialite" class="form-control" required>
                     <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
                     this field is required
                     </div>
                     
-                </div> </div> 
-                <div class="col-lg-6">
-                    <div class="form-group">  
-                      <label> archive</label>
-                <input type="text" #p="ngModel" [(ngModel)]="contrat.archive"name="archive" class="form-control" required>
-                <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
-                this field is required
                 </div>
-                
-            </div> </div> 
+
+               
+                <br>
+                <div class="btn-group-toggle" data-toggle="buttons">
+                  <label class="form-check-label">
+                    <input type="checkbox"  (click)="contrat.archive=!contrat.archive">Is Archived
+                 
+                   <div *ngIf="!contrat.archive">
+                     <app-contrat></app-contrat>    
+                          </div>
+                           </label>
+                   </div>
               
                       <br>
-                      <button class="btn btn-success" (click)="saveContrat()"
+                      <button class="btn btn-danger" (click)="saveContrat()"
                       [disabled]="f.invalid">
                           save
                       </button>
                       &nbsp;
-                      <button type="reset" class="btn btn-warning">
+                      <button type="reset" class="btn btn-secondary">
                           reset
                       </button>
+                      </div>
                   </form>
               </div>
           </div>
