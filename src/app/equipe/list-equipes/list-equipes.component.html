@@ -6,6 +6,7 @@
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               <h6 class="text-white text-capitalize ps-3">LISTE EQUIPES</h6>
             </div>
+            <a style="float: right;" class="btn btn-info bg-gradient-primary shadow-primary"  routerLink="/equipe/addequipe">Add equipe</a>
           </div>
           <div class="card-body px-0 pb-2 " >
             <div class="table-responsive p-0">
@@ -33,21 +34,18 @@
                       <span class="text-xs text-secondary mb-0">{{e.niveau}}</span>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <span class="text-xs text-secondary mb-0">{{e.detail_equipe1_id_equipe}}</span>
+                        <span class="text-xs text-secondary mb-0"></span>
                       </td>
                     <td>
-                        <button class="btn btn-sm btn-danger" >
+                        <button class="btn btn-sm btn-danger" (click)="delete(e)" >
                           delete
                         </button>
                         &nbsp;
-                        <a class="btn btn-sm btn-warning">
+                        <a class="btn btn-sm btn-warning" [routerLink]="['/equipe/updateequipe', e.idEquipe]">
                           update
                         </a>
                       </td>
-                  </tr>
-               
-                 
-                  
+                  </tr>    
                 
                 </tbody>
               </table>

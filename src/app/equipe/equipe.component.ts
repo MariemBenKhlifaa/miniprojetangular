@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Niveau } from '../core/model/niveau';
 
 @Component({
   selector: 'app-equipe',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipe.component.css']
 })
 export class EquipeComponent implements OnInit {
+  public niveauEnum = Niveau;
 
   constructor() { }
 
