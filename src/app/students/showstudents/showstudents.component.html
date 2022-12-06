@@ -13,8 +13,8 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nom</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">option</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">prenom</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">prenom</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">option</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">departement_id</th>
                     <th class="text-secondary opacity-7"></th>
                   </tr>
@@ -44,7 +44,20 @@
                     <td class="align-middle text-center text-sm">
                       <span class="text-xs text-secondary mb-0">{{p.departement_id}}</span>
                     </td>
-                    
+                    <td class="align-middle ">
+                     <button type="button" class="btn btn-danger" (click)="delete(p)"> supprimer</button> 
+                  
+                    </td>
+                    <td class="align-middle ">
+                      <button type="button" class="btn btn-danger" >modifier</button> 
+                   
+                     </td>
+                     <td class="align-middle ">
+                      <button type="button" class="btn btn-danger" >affecter
+                        
+                      </button> 
+                   
+                     </td>
                     <td class="align-middle">
                     
                     </td>
