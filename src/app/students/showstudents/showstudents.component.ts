@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Student } from 'src/app/service/model/student';
 import { StudentsService } from 'src/app/service/students.service';
 
 
@@ -22,13 +23,23 @@ export class ShowstudentsComponent implements OnInit {
     console.log(this.liststudents);
   
   }
-
+ 
   
 
   )
+  
  
   
    
   }
+  public delete(student:Student)
+  {
+    let i = this.liststudents.indexOf(student);
+    console.log(student);
+    this.studentservice.deletstudent(student.idEtudiant).subscribe(
+      ()=>this.liststudents.splice(i,1)
+    )
+  }
+
 
 }

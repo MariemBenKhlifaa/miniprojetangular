@@ -14,4 +14,13 @@ export class StudentsService {
        
     
 }
+addstudent(etudiant:any)
+{
+  return this.HttpClient.post("http://localhost:8081/addetudiant",etudiant);
+}
+deletstudent(id:number)
+{
+  return this.HttpClient.delete("http://localhost:8081/deleteEtudiant/"+id);
+}
+update(id:any,etudiant:any){return this.HttpClient.put("http://localhost:8081/updateetudiant/"+id,etudiant)}
 }

@@ -6,6 +6,7 @@ import { StudentsComponent } from './students.component';
 import { FormsModule } from '@angular/forms';
 import { FormulaireStudentComponent } from './formulaire-student/formulaire-student.component';
 import { ShowstudentsComponent } from './showstudents/showstudents.component';
+import { UpdateformComponent } from '../Students/updateform/updateform.component';
 
 
 
@@ -13,7 +14,8 @@ import { ShowstudentsComponent } from './showstudents/showstudents.component';
   declarations: [
     StudentsComponent,
    FormulaireStudentComponent,
-   ShowstudentsComponent
+   ShowstudentsComponent,
+   UpdateformComponent
   ],
   imports: [
     CommonModule,
