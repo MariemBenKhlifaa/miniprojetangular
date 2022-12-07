@@ -31,10 +31,11 @@
                     </div>
                     <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
                       <div *ngIf="d.hasError('required')">veuillez saisir votre prenom</div>
-                      <div *ngIf="d.hasError('pattern')">prenom invalide</div>
+                      <div *ngIf="d.hasError('pattern')">prenom invalide!!</div>
                   </div>
+                  <label class="form-label"></label>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label"></label>
+                    
                     
                     <select  class="form-control" name="option" [(ngModel)]="etudiant.option"  #m="ngModel" required >
                       <option  value="Gamix">Gamix</option>
@@ -46,7 +47,7 @@
                   </select>
                
                 </div>
-                <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
                   <div *ngIf="m.hasError('required')">veuillez saisir votre option</div>
           
               </div>
