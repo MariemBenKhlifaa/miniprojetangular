@@ -14,6 +14,9 @@ export class ContratService {
   getcontrat(){
   return this.HttpClient.get("http://localhost:8081/getcontrat");
 }
+getStudent(){
+ return this.HttpClient.get("http://localhost:8081/getetudiant") 
+}
  addContrat(c :Contrat){
   return this.HttpClient.post("http://localhost:8081/addcontrat",c);
 } 
@@ -28,4 +31,5 @@ updateContrat(c:Contrat){
 getContratById(id:number){
   return this.HttpClient.get("http://localhost:8081/getonecontrat/"+id)
 }
+
 }

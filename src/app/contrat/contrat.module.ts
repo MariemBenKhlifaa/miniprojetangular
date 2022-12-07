@@ -5,19 +5,27 @@ import { ContratRoutingModule } from './contrat-routing.module';
 import { ContratComponent } from './contrat.component';
 import { AddContratComponent } from './add-contrat/add-contrat.component';
 import { FormsModule } from '@angular/forms';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { PdfComponent } from './pdf/pdf.component';
 
 @NgModule({
   declarations: [
     ContratComponent,
     AddContratComponent,
-    ListContratComponent
+    ListContratComponent,
+    PdfComponent
 
   ],
   imports: [
     CommonModule,
     ContratRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
+     
   ]
 })
 export class ContratModule { }
