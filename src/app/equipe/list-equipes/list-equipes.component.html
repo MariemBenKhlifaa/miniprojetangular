@@ -10,6 +10,14 @@
           </div>
           <div class="card-body px-0 pb-2 " >
             <div class="table-responsive p-0">
+
+              <form class="col-md-6">
+                <div class="search-hero">
+                <input type="text" [(ngModel)]="nomEquipe"
+                name="nomEquipe" class="form-control" placeholder="search by nomEquipe">
+              </div>
+              </form>
+              <br>
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr>
@@ -20,8 +28,8 @@
                   </tr>
                 </thead>
                 
-                <tbody *ngFor="let e of listequipes">
-                  <tr>
+                <tbody *ngFor="let e of listequipes | filter: nomEquipe">
+                  <tr >
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
@@ -32,6 +40,9 @@
                     </td>
                     <td class="align-middle text-center text-sm">
                       <span class="text-xs text-secondary mb-0">{{e.niveau}}</span>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="text-xs text-secondary mb-0" > {{e.detailEquipe.salle + " " + e.detailEquipe.thematique}}</span>
                     </td>
                     <td class="align-middle text-center text-sm">
                         <span class="text-xs text-secondary mb-0"></span>

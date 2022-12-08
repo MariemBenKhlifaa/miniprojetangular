@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Niveau } from '../core/model/niveau';
+import { Niveau } from '../core/model/niveau.enum';
 
 @Component({
   selector: 'app-equipe',

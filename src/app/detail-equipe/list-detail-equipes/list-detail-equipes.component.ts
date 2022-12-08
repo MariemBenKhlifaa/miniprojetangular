@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { detailEquipe } from 'src/app/core/model/detailEquipe';
+import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service';
 
 @Component({
   selector: 'app-list-detail-equipes',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-detail-equipes.component.css']
 })
 export class ListDetailEquipesComponent implements OnInit {
+  listdetail: detailEquipe[]
+  data:any
 
-  constructor() { }
+  constructor(private detailService:DetailEquipeService,private HttpClient:HttpClient) { }
 
   ngOnInit(): void {
+    this.detailService.getDetailEquipe().subscribe(data=>{
+      this.listdetail=JSON.parse(JSON.stringify(data));
+      console.log(this.listdetail);
+    })
+  }
+  delete(e: detailEquipe) {
+    let i = this.listdetail.indexOf(e);
+    this.detailService.deleteDetailEquipe(e.idDetailEquipe).subscribe(
+      ()=>this.listdetail.splice(i, 1)
+    )
   }
 
 }

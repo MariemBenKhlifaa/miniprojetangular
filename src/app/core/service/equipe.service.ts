@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { detailEquipe } from '../model/detailEquipe';
 import { Equipe } from '../model/equipe';
 
 @Injectable({
@@ -23,4 +25,5 @@ export class EquipeService {
   getEquipeById(id:number){
     return this.HttpClient.get("http://localhost:8081/getuneequipe/"+id)
   }
+
 }
