@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Student } from './model/student';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,11 @@ deletstudent(id:number)
 {
   return this.HttpClient.delete("http://localhost:8081/deleteEtudiant/"+id);
 }
-update(id:any,etudiant:any){return this.HttpClient.put("http://localhost:8081/updateetudiant/"+id,etudiant)}
+update(id:number,etudiant:Student){return this.HttpClient.put("http://localhost:8081/updateetudiant/"+id,etudiant)}
+
+
+listeequipe()
+{
+  return this.HttpClient.get("http://localhost:8081/getequipe");
+}
 }

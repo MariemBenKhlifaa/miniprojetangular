@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { StudentsRoutingModule } from './students-routing.module';
 import { StudentsComponent } from './students.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormulaireStudentComponent } from './formulaire-student/formulaire-student.component';
 import { ShowstudentsComponent } from './showstudents/showstudents.component';
-import { UpdateformComponent } from '../Students/updateform/updateform.component';
+import { UpdateformComponent } from './updateform/updateform.component';
+import { EquipeaffectationComponent } from './equipeaffectation/equipeaffectation.component';
+
 
 
 
@@ -15,11 +17,12 @@ import { UpdateformComponent } from '../Students/updateform/updateform.component
     StudentsComponent,
    FormulaireStudentComponent,
    ShowstudentsComponent,
-   UpdateformComponent
+   UpdateformComponent,EquipeaffectationComponent
+ 
   ],
   imports: [
     CommonModule,
-    StudentsRoutingModule,FormsModule
+    StudentsRoutingModule,FormsModule,ReactiveFormsModule
   ]
 })
 export class StudentsModule { }

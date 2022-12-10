@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Student } from 'src/app/service/model/student';
+import { StudentsService } from 'src/app/service/students.service';
 
 @Component({
   selector: 'app-updateform',
@@ -7,21 +10,41 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./updateform.component.css']
 })
 export class UpdateformComponent implements OnInit {
-updateForm:FormGroup
-option = ['SE','SIM','Gamix','NIDS']
-  constructor(private fb: FormBuilder) { }
+public updateForm:FormGroup
+public etudiant:Student
+//option = ['SE','SIM','Gamix','NIDS']
+  constructor(private servicestudent:StudentsService,private fb: FormBuilder,private router:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.updateForm=new FormGroup({
-      nom:new FormControl(""),
-      prenom:new FormControl(""),
+    this.updateForm=this.fb.group({
+      nom:['',Validators.required],
+      prenom:['',Validators.required],
+      option:['',Validators.required]
+     
       
       
 
     }
 
+
     
     )
+    
+  }
+  update(etudiant:Student)
+  {
+   
+    
+
+    this.servicestudent.update(this.router.snapshot.params['idetudiant'],etudiant).subscribe(
+      res=>{
+       
+        console.log(this.router.snapshot.params['idetudiant']);
+        console.log(res);
+      
+      }
+    )
+    
   }
 
 
