@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Student } from 'src/app/service/model/student';
 import { StudentsService } from 'src/app/service/students.service';
 
 
@@ -11,8 +12,11 @@ import { StudentsService } from 'src/app/service/students.service';
 export class ShowstudentsComponent implements OnInit {
   liststudents:any
   data:any
+  affectation:boolean
+  name:any
+  listeequipe:any
   constructor(private studentservice:StudentsService,private HttpClient:HttpClient) {
-   
+   this.affectation=true
    }
 
   ngOnInit(): void {
@@ -20,15 +24,45 @@ export class ShowstudentsComponent implements OnInit {
       
     this.liststudents=JSON.parse(JSON.stringify(data));
     console.log(this.liststudents);
+
+this.studentservice.listeequipe().subscribe(
+  dataa=>
+  {
+    this.listeequipe=JSON.parse(JSON.stringify(dataa));
+    console.log(this.listeequipe)
+
+  }
+)
+  
   
   }
 
+ 
   
 
   )
+  
  
   
    
   }
+  public delete(student:Student)
+  {
+    let i = this.liststudents.indexOf(student);
+    console.log(student);
+    this.studentservice.deletstudent(student.idEtudiant).subscribe(
+      ()=>this.liststudents.splice(i,1)
+    )
+  }
+  ngaffecetation()
+  {
+    this.affectation=false;
+
+  }
+  update(student:Student)
+  {
+
+  }
+
 
 }
