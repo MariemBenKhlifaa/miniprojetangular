@@ -12,11 +12,11 @@
             </div>
           </div>
           <div class="col-md-4 text-right">
-            <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+            <button class="btn btn-success btn-block" (click)="generatePDF()">Download PDF</button>
           </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
-              <table class="table align-items-center mb-0">
+              <table  id ="content" #content class="table align-items-center mb-0">
                 <span class="btn btn-sm btn-warning" [routerLink]="['/contrat/addcontrat']"></span> 
 
                 <thead>

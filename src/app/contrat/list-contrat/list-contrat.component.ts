@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Contrat } from 'src/app/core/model/contrat';
 import { Specialite } from 'src/app/core/model/specialite';
 import { ContratService } from 'src/app/core/services/contrat.service';
@@ -14,6 +14,10 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./list-contrat.component.css']
 })
 export class ListContratComponent implements OnInit {
+  
+  @ViewChild('content',{static:false}) el!: ElementRef
+
+  title = 'pdfapp';
   listcontrats:any
   contratList:any
   data:any
@@ -37,101 +41,35 @@ this.contratservice.deleteContrat(c.idContrat).subscribe(
     ()=>this.listcontrats.splice(i, 1)
   )
 }
-generatePDF(action = 'open') {
-  let docDefinition = {
-    content: [
-      {
-        text: 'Dari.tn',
-        fontSize: 16,
-        alignment: 'center',
-        color: '#047886'
-      },
-      {
-        text: 'Contrat',
-        fontSize: 20,
-        bold: true,
-        alignment: 'center',
-        decoration: 'underline',
-        color: 'skyblue'
-      },
-      {
-        text: 'Details',
-        style: 'sectionHeader'
-      },
-      {
-        columns: [
-          [
-            {
-              text: this.contrat.montantContrat,
-              bold:true
-            },
-            { text: this.contrat.dateDebutContrat },
-            { text: this.contrat.dateFinContrat },
-            { text: this.contrat.specialite },
-            
-          ],
-          [
-            {
-              text: `Date: ${new Date().toLocaleString()}`,
-              alignment: 'right'
-            },
-            
-          ]
-        ]
-      },
-      {
-        text: 'Order Details',
-        style: 'sectionHeader'
-      },
-      {
-        text: 'Additional Details',
-        style: 'sectionHeader'
-      },
-      {
-        columns: [
-          [{ qr: `${this.contrat.idContrat}`, fit: '50' }],
-          [{ text: 'Signature', alignment: 'right', italics: true}],
-        ]
-      },
-      {
-        text: 'Terms and Conditions',
-        style: 'sectionHeader'
-      },
-      {
-          ul: [
-            ' ok.',
-            'This is system generated file.',
-          ],
-      }
-    ],
-    styles: {
-      sectionHeader: {
-        bold: true,
-        decoration: 'underline',
-        fontSize: 14,
-        margin: [0, 15,0, 15]          
-      }
+
+
+generatePDF(){
+
+         let pdf = new jsPDF('p', 'pt', 'letter')   
+    , specialElementHandlers = {
+        // element with id of "bypass" - jQuery style selector
+        '#bypassme': function(element, renderer){           
+            return true
+        }
     }
-    
-  };
+
+    , margins = {
+             top: 20,
+             bottom: 20,
+             left: 40,
+             width: 1000
+         };
+
+    pdf.html(this.el.nativeElement,{
+      callback:(pdf) => {
+        pdf.save("output.pdf")
+      }
+    })
+  }
 
 }
 
-public openPDF(): void {
-  let DATA: any = document.getElementById('htmlData');
-  html2canvas(DATA).then((canvas) => {
-    let fileWidth = 208;
-    let fileHeight = (canvas.height * fileWidth) / canvas.width;
-    const FILEURI = canvas.toDataURL('image/png');
-    let PDF = new jsPDF('p', 'mm', 'a4');
-    let position = 0;
-    PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-    PDF.save('angular-credit.pdf');
-    PDF.setProperties({title: "Dari.tn"})
-  });
-}
 
 
-}
 
 
