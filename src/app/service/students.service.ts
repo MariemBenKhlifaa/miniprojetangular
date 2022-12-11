@@ -30,4 +30,14 @@ listeequipe()
 {
   return this.HttpClient.get("http://localhost:8081/getequipe");
 }
+affecter(ide:number,idequipe:number,etudiant:any)
+{
+  return this.HttpClient.put("http://localhost:8081/affecter_equipe_etudiant/"+ide+"/"+idequipe,etudiant)
+
+}
+affichageequipeetudiant(ide:number)
+{
+  return this.HttpClient.get("http://localhost:8081/getetud/"+ide)
+
+}
 }
