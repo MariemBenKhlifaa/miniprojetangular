@@ -71,7 +71,15 @@
       
        
         </div>
-           
+        <div class="btn-group-toggle" data-toggle="buttons">
+          <label class="form-check-label">
+            <input type="checkbox"  (click)="contrat.archive=!contrat.archive">Is Archived
+
+           <div *ngIf="!contrat.archive">
+             <app-contrat></app-contrat>    
+                  </div>
+                   </label>
+           </div>
             <div class="form-group">
               <label>montant</label>
               <input  class="form-control"  required minlength="3" placeholder= " montant de Contrat"  type="number" #qt="ngModel" [(ngModel)]="contrat.montantContrat" name="montantContrat" class="form-control" required>
