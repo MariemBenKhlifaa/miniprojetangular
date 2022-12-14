@@ -21,31 +21,27 @@
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-15">SALLE</th>
-                    <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Thématique</th>
-                    <th class="text-secondary opacity-7"></th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder opacity-15">SALLE</th>
+                    <th class="text-center text-uppercase text-dark text-sm font-weight-bolder opacity-15">Thématique</th>
+                    <th class="text-dark opacity-7"></th>
                   </tr>
                 </thead>
                 
                 <tbody *ngFor="let d of listdetail">
                   <tr>
                     <td>
-                      <div class="d-flex px-2 py-1">
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm"></h6>
-                          <p class="text-sm text-secondary mb-0">{{d.salle}}</p>
-                        </div>
+                      <div class="d-flex px-4 py-1">
+                          <p class="text-sm text-dark">{{d.salle}}</p>
                       </div>
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <span class="text-sm text-secondary mb-0">{{d.thematique}}</span>
+                      <span class="text-sm text-dark mb-0">{{d.thematique}}</span>
                     </td>
                    
                     <td>
                         <button mat-raised-button	 color="warn" (click)="delete(d)" >
                           <mat-icon>delete_outline</mat-icon>
                         </button>
-                        &nbsp;
                         <a mat-raised-button color="yellow"	[routerLink]="['/detailEquipe/updatedetail', d.idDetailEquipe]">
                           <mat-icon>update</mat-icon>
                         </a>

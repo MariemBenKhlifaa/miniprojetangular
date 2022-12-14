@@ -49,8 +49,6 @@ export class AddDetailEquipeComponent implements OnInit {
         ()=>this.route.navigate(['detailEquipe/listdetail']),
         ()=>{console.log('error'),
         ()=>{console.log('complete')}})
-      alert('Detail Equipe Added Successfully \n\n' + JSON.stringify("salle : "+  this.detail.salle + "thématique " + this.detail.thematique));
-
     }else{
     this.detailService.updateDetailEquipe(this.detail).subscribe(
       ()=>this.route.navigate(['detailEquipe/listdetail']),
@@ -58,6 +56,4 @@ export class AddDetailEquipeComponent implements OnInit {
       ()=>{console.log('complete')}})}
   }
   
-
-
 }

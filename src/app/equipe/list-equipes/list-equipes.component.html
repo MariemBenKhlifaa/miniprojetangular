@@ -30,24 +30,29 @@
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class=" text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Nom équipe</th>
-                    <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Niveau</th>
-                    <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Détail equipe</th>
-                    <th class="text-secondary opacity-7"></th>
+                    <th class=" text-uppercase text-dark text-sm font-weight-bolder opacity-15">Nom équipe</th>
+                    <th class="text-center text-uppercase text-dark text-sm font-weight-bolder opacity-15">Niveau</th>
+                    <th class="text-center text-uppercase text-dark text-sm font-weight-bolder opacity-15">Détail equipe</th>
+                    <th class="text-dark opacity-7"></th>
                   </tr>
                 </thead>
                 
                 <tbody *ngFor="let e of listequipes | filter: nomEquipe">
                   <tr >
-                    <td class="align-left text-capitalize text-center text-sm">
-                      <span class="text-sm text-secondary mb-0 ">{{e.nomEquipe}}</span>
+                    <div class="d-flex px-5 py-1">
+
+                    <td class="text-capitalize text-center text-sm">
+                      <span class="text-sm text-dark mb-0 ">{{e.nomEquipe}}</span>
                     </td>
+                    </div>
 
                     <td class="align-middle text-center text-sm">
-                      <span class="text-sm text-secondary mb-0">{{e.niveau}}</span>
+                      <span [ngClass]="{'text-success':e.niveau === 'EXPERT',
+                      'text-warning':e.niveau === 'SENIOR',
+                      'text-danger':e.niveau === 'JUNIOR'}">{{e.niveau}}</span>
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <span class="text-sm text-secondary mb-0" > {{e.detailEquipe.salle + " " + e.detailEquipe.thematique}}</span>
+                      <span class="text-sm text-dark mb-0" > {{e.detailEquipe.salle + " " + e.detailEquipe.thematique}}</span>
                     </td>
                    
                     <td>

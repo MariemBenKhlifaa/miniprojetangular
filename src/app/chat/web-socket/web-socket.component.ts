@@ -42,6 +42,8 @@ export class WebSocketComponent implements OnInit {
 
   sendMessage(){
     this.webSocketAPI._send(this.name+": "+this.message);
+    this.name = '';
+    this.message ='';
   }
 
 }

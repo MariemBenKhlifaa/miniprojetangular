@@ -5,6 +5,7 @@ import { Equipe } from 'src/app/service/model/equipe';
 import { FileTypeLabelMapping, Niveau } from 'src/app/service/model/niveau.enum';
 import { DetailEquipeService } from 'src/app/service/detail-equipe.service';
 import { EquipeService } from 'src/app/service/equipe.service';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-add-equipe',
@@ -20,7 +21,7 @@ export class AddEquipeComponent implements OnInit {
   equipeD : detailEquipe[] ;
   listequipes : Equipe[];
 
-  constructor(private detailService : DetailEquipeService, private equipeService:EquipeService,
+  constructor(private ns : NotificationService, private detailService : DetailEquipeService, private equipeService:EquipeService,
    private route: Router, private currentRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,20 +29,6 @@ export class AddEquipeComponent implements OnInit {
     this.detailService.getDetailEquipe().subscribe(data=>{
       this.equipeD=JSON.parse(JSON.stringify(data))
     });
-
-  /*  this.equipeService.getEquipe().subscribe(data=>{
-      this.listequipes=JSON.parse(JSON.stringify(data))
-      for(let i = 0 ; i<= this.listequipes.length; i++){
-        for(let j = 0 ; j<= this.equipeD.length; j++){
-          if(this.listequipes[i].detailEquipe.idDetailEquipe == this.equipeD[j].idDetailEquipe ){
-            const index: number = this.listequipes.indexOf(this.equipe[i]);
-            this.equipeD.splice(index,1)
-            console.log(index) 
-                    }else{
-            
-          }
-    }}});*/
-    
     
     let id=this.currentRoute.snapshot.params['id'];
     if(id!=null){
@@ -55,8 +42,10 @@ export class AddEquipeComponent implements OnInit {
 
     }
   }
+
   saveEquipe(){
    if(this.action='ADD NEW'){
+    this.ns.showNotification()
     this.equipeService.addEquipe(this.equipe).subscribe(
       ()=>this.route.navigate(['equipe/listequipes']),
       ()=>{console.log('error'),

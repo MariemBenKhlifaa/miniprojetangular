@@ -38,7 +38,7 @@
                                 <mat-label>Select detail equipe</mat-label>
                                 <mat-select [(ngModel)]="equipe.detailEquipe" name="detailEquipe" #d="ngModel" required>
                                     <mat-option [value]="d" *ngFor="let d of equipeD " >
-                                    {{d.salle }}
+                                    {{d.salle + " " + d.thematique}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field> 
