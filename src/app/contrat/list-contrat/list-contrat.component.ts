@@ -16,22 +16,40 @@ import html2canvas from 'html2canvas';
 export class ListContratComponent implements OnInit {
   
   @ViewChild('content',{static:false}) el!: ElementRef
+  lisecontratetudiant:any
 
+  idContrat:any;
   title = 'pdfapp';
   listcontrats:any
   contratList:any
   data:any
+  getalletudiant:any
+  affectation:boolean
+
   contrat : Contrat
-  constructor(private contratservice:ContratService,private HttpClient:HttpClient) { }
+  constructor(private contratservice:ContratService,private HttpClient:HttpClient) {
+
+    this.affectation=true
+
+   }
 
   ngOnInit(): void {
+
+
     this.contratservice.getcontrat().subscribe(data=>{
       
       this.listcontrats=JSON.parse(JSON.stringify(data));
-      console.log('list contrat: ',this.listcontrats);
-    
+      console.log("listtttt",this.listcontrats)
+
+      this.contratservice.getalletudiant().subscribe( dataa=>  {
+
+        
+        this.getalletudiant=JSON.parse(JSON.stringify(dataa));
+
+      }
+    )
     }
-)
+)                         
    
 }
 
@@ -40,6 +58,12 @@ delete(c: Contrat) {
 this.contratservice.deleteContrat(c.idContrat).subscribe(
     ()=>this.listcontrats.splice(i, 1)
   )
+}
+
+ngaffecetation()
+{
+  this.affectation=false;
+
 }
 
 
@@ -65,6 +89,20 @@ generatePDF(){
         pdf.save("output.pdf")
       }
     })
+  }
+  affiche(Input:number)
+  {
+    this.idContrat=Input
+    this.contratservice.findEtudiantByContratsIdContrat(Input).subscribe(
+      dataaa=>
+      {
+        console.log( "dataa",Input)
+      
+        this. lisecontratetudiant=JSON.parse(JSON.stringify(dataaa));
+        console.log("lista",this.lisecontratetudiant)
+      }
+    )
+
   }
 
 }

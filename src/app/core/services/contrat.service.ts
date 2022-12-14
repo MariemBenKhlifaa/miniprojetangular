@@ -11,8 +11,15 @@ export class ContratService {
 
     data:any
   constructor(private HttpClient:HttpClient) { }
+  findEtudiantByContratsIdContrat(idc:number){
+    return this.HttpClient.get("http://localhost:8081/getContE/"+idc)
+  }
+  
   getcontrat(){
   return this.HttpClient.get("http://localhost:8081/getcontrat");
+}
+getalletudiant(){
+  return this.HttpClient.get("http://localhost:8081/getetudiant")
 }
 getStudent(){
  return this.HttpClient.get("http://localhost:8081/getetudiant") 
@@ -20,7 +27,10 @@ getStudent(){
  addContrat(c :Contrat){
   return this.HttpClient.post("http://localhost:8081/addcontrat",c);
 } 
+affectcontrattoetudiant(Contrat:any, nom: String, prenom:String ){
+  return this.HttpClient.post("http://localhost:8081/addcon/"+nom+"/"+prenom,Contrat);
 
+}
 
 deleteContrat(id:number){
   return this.HttpClient.delete("http://localhost:8081/deletecontrat/"+id)
@@ -31,5 +41,6 @@ updateContrat(c:Contrat){
 getContratById(id:number){
   return this.HttpClient.get("http://localhost:8081/getonecontrat/"+id)
 }
+
 
 }

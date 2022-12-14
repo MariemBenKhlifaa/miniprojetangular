@@ -8,7 +8,7 @@ export class Contrat {
  specialite : String[];
  archive :boolean = false;
  montantContrat:number;
- listOfStudents :Student;
+ Student :Student;
 public Contrat (){
     this.specialite;
 }

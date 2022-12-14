@@ -9,22 +9,30 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PdfComponent } from './pdf/pdf.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { DetailcontratComponent } from './detailcontrat/detailcontrat.component';
+
 
 @NgModule({
   declarations: [
     ContratComponent,
     AddContratComponent,
     ListContratComponent,
-    PdfComponent
+    PdfComponent,
+    DetailcontratComponent
 
   ],
   imports: [
     CommonModule,
     ContratRoutingModule,
     FormsModule,
+    MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
+   
      
   ]
 })
