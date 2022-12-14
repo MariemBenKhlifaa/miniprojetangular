@@ -62,7 +62,9 @@
             <div class="input-group input-group-outline mb-3">
             
               <select class="form-select" [(ngModel)]="contrat.Student" name="Student" #d="ngModel" required >
-              
+                <mat-option [value]="d" *ngFor="let d of StudentD " >
+                      {{d.nom + " " + d.prenom}}
+                      </mat-option>
                 <option [value]="d" *ngFor="let d of StudentD "> {{d.nom + " " + d.prenom}}</option>
               
           </select>

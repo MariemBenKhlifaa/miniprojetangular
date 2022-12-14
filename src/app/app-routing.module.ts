@@ -6,7 +6,8 @@ const routes: Routes = [{ path: 'students', loadChildren: () => import('./studen
 { path: 'equipe', loadChildren: () => import('./equipe/equipe.module').then(m => m.EquipeModule) },
 { path: 'detailEquipe', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
 {path:'chat/:id', component: WebSocketComponent},
-{ path: 'teachers', loadChildren: () => import('./teachers/teachers.module').then(m => m.TeachersModule) }
+{ path: 'teachers', loadChildren: () => import('./teachers/teachers.module').then(m => m.TeachersModule) },
+{ path: 'contrat', loadChildren: () => import('./contrat/contrat.module').then(m => m.ContratModule)}
 ];
 
 @NgModule({

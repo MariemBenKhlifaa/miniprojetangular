@@ -17,8 +17,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
