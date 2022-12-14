@@ -27,9 +27,9 @@ import { DetailcontratComponent } from './detailcontrat/detailcontrat.component'
     CommonModule,
     ContratRoutingModule,
     FormsModule,
+    MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
-    MatFormFieldModule,
     MatInputModule,
     MatButtonModule
    

@@ -20,6 +20,7 @@ export class AddContratComponent implements OnInit {
   public action:string;
   public listOfSpecialities: Specialite;
   public x =null;
+  StudentD : Student[];
   constructor( private contratservice:ContratService ,
    private route: Router, private currentRoute:ActivatedRoute) { }
    keys = Object.keys;
@@ -28,7 +29,9 @@ export class AddContratComponent implements OnInit {
   ngOnInit():  void { 
 
 
-
+    this.contratservice.getalletudiant().subscribe(data=>{
+      this.StudentD=JSON.parse(JSON.stringify(data))
+    });
      let id=this.currentRoute.snapshot.params['id'];
      
   if(id!=null){
