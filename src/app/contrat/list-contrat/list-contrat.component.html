@@ -4,15 +4,16 @@
         <div class="card mx-10">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">SHOW CONTRAT</h6>
-              
+              <h6 class="text-white text-capitalize ps-3">SHOW CONTRAT</h6>      
+          
               <div class="row">
              
               </div>
             </div>
           </div>
        
-        
+          <input type="text" [(ngModel)]="name"
+          name="specialite" class="form-control" placeholder="search" autofocus>
           <div class="example-button-container">
             <button  mat-fab [routerLink]="['/contrat/addcontrat']"  >
               <mat-icon>plus_one</mat-icon>
@@ -21,6 +22,7 @@
               <mat-icon>bookmark</mat-icon>
             </button>
           </div>
+   
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
               <table  id ="content" #content class="table align-items-center mb-0">
@@ -37,8 +39,8 @@
                   </tr>
                 </thead>
              
-                <tbody *ngFor="let p of listcontrats">
-                  <tr>
+                <tbody *ngFor="let p of listcontrats  ">
+                  <tr *ngIf="p.specialite.indexOf(name)>-1 || name==null" ng>
                     <td class="align-middle text-center text-sm">
                         <div class="d-flex px-2 py-1">
                      

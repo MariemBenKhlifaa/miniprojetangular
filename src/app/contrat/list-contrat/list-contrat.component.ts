@@ -19,6 +19,7 @@ export class ListContratComponent implements OnInit {
   lisecontratetudiant:any
 
   idContrat:any;
+  name:any;
   title = 'pdfapp';
   listcontrats:any
   contratList:any
@@ -51,6 +52,9 @@ export class ListContratComponent implements OnInit {
     }
 )                         
    
+}
+customSearchFn( dateFinContrat) {
+  return dateFinContrat.filter(o => { o.specialite.toLowerCase().startsWith(this.contrat.dateFinContrat)})
 }
 
 delete(c: Contrat) {
