@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Contrat } from '../model/contrat';
+import { Contrat } from './model/contrat';
 
 
 @Injectable({

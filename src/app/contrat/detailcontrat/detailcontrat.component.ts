@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { ContratService } from 'src/app/core/services/contrat.service';
+import { ContratService } from 'src/app/service/contrat.service';
 @Component({
   selector: 'app-detailcontrat',
   templateUrl: './detailcontrat.component.html',

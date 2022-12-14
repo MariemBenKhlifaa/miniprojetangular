@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Contrat } from 'src/app/core/model/contrat';
+import { Contrat } from 'src/app/service/model/contrat';
 import { Router ,ActivatedRoute} from '@angular/router';
-import { ContratService } from 'src/app/core/services/contrat.service';
+import { ContratService } from 'src/app/service/contrat.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Specialite } from 'src/app/core/model/specialite';
-import {Student} from'src/app/core/model/students';
+import { Specialite } from 'src/app/service/model/specialite';
+import {Student} from'src/app/service/model/students';
 @Component({
   selector: 'app-add-contrat',
   templateUrl: './add-contrat.component.html',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Contrat } from 'src/app/core/model/contrat';
+import { Contrat } from 'src/app/service/model/contrat';
 import { Router } from '@angular/router';
-import { ContratService } from 'src/app/core/services/contrat.service';
+import { ContratService } from 'src/app/service/contrat.service';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
