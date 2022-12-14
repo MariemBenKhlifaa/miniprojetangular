@@ -6,7 +6,7 @@ import { TeachersService } from 'src/app/service/teachers.service';
 @Component({
   selector: 'app-showteachers',
   templateUrl: './showteachers.component.html',
-  styleUrls: ['./showteachers.component.css']
+  styleUrls: ['./showteachers.component.css'],
 })
 export class ShowteachersComponent implements OnInit {
 
@@ -15,6 +15,8 @@ export class ShowteachersComponent implements OnInit {
   idens:number
   idenseignant:any
   public teacher:Teachers
+
+
 
   constructor(private teacherservice:TeachersService,private HttpClient:HttpClient) { }
 

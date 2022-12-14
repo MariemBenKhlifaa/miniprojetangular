@@ -7,6 +7,7 @@ import { ShowteachersComponent } from './showteachers/showteachers.component';
 import { FormulaireTeachersComponent } from './formulaire-teachers/formulaire-teachers.component';
 import { UpdateformmComponent } from './updateformm/updateformm.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    TeachersRoutingModule,FormsModule,ReactiveFormsModule
+    TeachersRoutingModule,FormsModule,ReactiveFormsModule,NgxPaginationModule
   ]
 })
 export class TeachersModule { }

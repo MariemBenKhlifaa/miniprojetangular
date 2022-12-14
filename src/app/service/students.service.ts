@@ -10,7 +10,7 @@ export class StudentsService {
   data:any
   constructor(private HttpClient:HttpClient) { }
  getstudent(){
-  console.log(this.HttpClient.get("http://localhost:8081/getetudiant"));
+ 
        
   return this.HttpClient.get("http://localhost:8081/getetudiant");
     
