@@ -1,12 +1,12 @@
 
 <div class="container py-7">
   
-    <div class="row">
+    <div class="">
       <div class="col-lg-12">
         
         <div class="card mx-10">
           
-          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="card-header p-0 ">
             
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               
@@ -17,60 +17,57 @@
             </div>
           </div>
           
-          <div class="card-body px-0 pb-2" >
+          <div class="card-body px-0 pb-20" >
             <div class="table-responsive p-0">
          
               
-              <table class="table align-items-center mb-0" >
+              <table class="" >
                 <thead>
                   <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">image</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nom</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">prenom</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">option</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nom equipe</th>
+                    
                    
-                    <th class="text-secondary opacity-7"></th>
+                    <th class=""></th>
                   </tr>
                 </thead>
-
-               
                 <tbody *ngFor="let p of liststudents"  >
+
                   <tr *ngIf="p.nom.indexOf(name)>-1 || name==null" ng>
                     
                     <td >
-                      <div class="d-flex px-2 py-1">
+                     
+                      <div class="d-flex px-2 py-1" >
                         <div>
                           <img src="assets/assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="mb-0 text-sm"></h6>
-                          <p class="text-xs text-secondary mb-0" >{{p.nom}} </p>
+                          <p class="text-xs text-sm mb-0" >{{p.nom}} </p>
                         </div>
                       </div>
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <span class="text-xs text-secondary mb-0" >{{p.nom}}</span>
-                    </td>
-                    
-                    
-                    <td>
-
-                  
-                      <p class="text-xs text-secondary mb-0">{{p.option}}</p>
-                    </td>
-             
-
+                      <span class="text-xs text-sm mb-0" >{{p.prenom}}</span>
                    
-
-                
-                    <td class="align-middle ">
-                     <button type="button" class="btn btn-danger" (click)="delete(p)"> supprimer</button> 
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="text-xs text-sm mb-0" >{{p.option}}</span>
+                   
+                    </td>
+                   
+                      
+                         <td class="align-middle ">
+                     <button type="button" class="btn btn-close" (click)="delete(p)"> supprimer</button> 
                   
                     </td>
                     <td class="align-middle ">
-                      <button type="button" class="btn btn-danger" routerLink='/students/updateStudent/{{p.idEtudiant}}'>modifier</button> 
+                      <button type="button" class="btn btn-danger" routerLink='/students/updateStudent/{{p.idEtudiant}}'>MODIFIER</button> 
                    
                      </td>
+
                      <td class="align-middle ">
                       <button type="button" class="btn btn-danger" (click)="idetud=p.idEtudiant " data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Affecter
@@ -78,8 +75,17 @@
 
                    
                      </td>
+                     <td class="align-middle ">
+                      <button type="button" class="btn btn-danger"  data-bs-toggle="modal" (click)="affiche(p.idEtudiant)" data-bs-target="#exampleModall">
+                        show details
+                       </button>
+
+                    <app-showdetails-students  [id]="idetudiant"></app-showdetails-students>
+                     </td>
                     <td class="align-middle">
-                      
+                      <button type="button" class="btn btn-danger" (click)="sms(p) " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                       sms
+                      </button>
                     
                     </td>
                   </tr>

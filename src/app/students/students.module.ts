@@ -8,6 +8,8 @@ import { FormulaireStudentComponent } from './formulaire-student/formulaire-stud
 import { ShowstudentsComponent } from './showstudents/showstudents.component';
 import { UpdateformComponent } from './updateform/updateform.component';
 import { EquipeaffectationComponent } from './equipeaffectation/equipeaffectation.component';
+import { ShowdetailsStudentsComponent } from './showdetails-students/showdetails-students.component';
+
 
 
 
@@ -17,7 +19,7 @@ import { EquipeaffectationComponent } from './equipeaffectation/equipeaffectatio
     StudentsComponent,
    FormulaireStudentComponent,
    ShowstudentsComponent,
-   UpdateformComponent,EquipeaffectationComponent
+   UpdateformComponent,EquipeaffectationComponent,ShowdetailsStudentsComponent
  
   ],
   imports: [
