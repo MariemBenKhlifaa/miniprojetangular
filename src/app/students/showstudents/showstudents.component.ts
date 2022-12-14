@@ -11,6 +11,7 @@ import { StudentsService } from 'src/app/service/students.service';
   styleUrls: ['./showstudents.component.css']
 })
 export class ShowstudentsComponent implements OnInit {
+  
   liststudents:any
   data:any
   affectation:boolean
@@ -32,10 +33,6 @@ export class ShowstudentsComponent implements OnInit {
    
     this.liststudents=JSON.parse(JSON.stringify(data));
     
-    
-  
-  
-
 this.studentservice.listeequipe().subscribe(
   dataa=>
   {
@@ -43,26 +40,11 @@ this.studentservice.listeequipe().subscribe(
 
   }
 )
-
-
-
-
-
-    
-
-
-
   
   }
 
- 
-  
-
   )
   
- 
-  
-   
   }
   public delete(student:Student)
   {
@@ -97,7 +79,6 @@ this.studentservice.listeequipe().subscribe(
        
         console.log(res);
         
-      
       }
     )
 
