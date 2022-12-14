@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { detailEquipe } from 'src/app/core/model/detailEquipe';
-import { Equipe } from 'src/app/core/model/equipe';
-import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service';
-import { EquipeService } from 'src/app/core/service/equipe.service';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Equipe } from 'src/app/service/model/equipe';
+import { DetailEquipeService } from 'src/app/service/detail-equipe.service';
+import { EquipeService } from 'src/app/service/equipe.service';
+import globals from 'src/app/global';
 
 @Component({
   selector: 'app-list-equipes',
@@ -11,20 +11,27 @@ import { EquipeService } from 'src/app/core/service/equipe.service';
   styleUrls: ['./list-equipes.component.css']
 })
 export class ListEquipesComponent implements OnInit {
-  listequipes: Equipe[]
-  nomEquipe;
 
-  constructor(private equipeService:EquipeService, private dS: DetailEquipeService, private HttpClient:HttpClient) {
+  listequipes: Equipe[]
+  nomEquipe : string;
+
+  constructor( private equipeService:EquipeService, private dS: DetailEquipeService, private HttpClient:HttpClient) {
   }
 
-  customSearchFn( item: Equipe) {
-    // check if the name startsWith the input, everything in lowercase so "a" will match "A" 
-    return item.nomEquipe.toLowerCase().startsWith(this.nomEquipe.toLowerCase())
+  customSearchFn( nomEquipe) {
+    return nomEquipe.filter(o => { o.nomEquipe.toLowerCase().startsWith(this.nomEquipe.toLowerCase())})
 }
 
   ngOnInit(): void {
+
+
     this.equipeService.getEquipe().subscribe(data=>{
-      this.listequipes=JSON.parse(JSON.stringify(data))});
+
+      this.listequipes=JSON.parse(JSON.stringify(data))
+      globals.listequipes = this.listequipes;
+    });
+
+
   }
 
   delete(e: Equipe) {

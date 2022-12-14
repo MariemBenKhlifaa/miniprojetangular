@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { detailEquipe } from 'src/app/core/model/detailEquipe';
-import { Equipe } from 'src/app/core/model/equipe';
-import { FileTypeLabelMapping, Niveau } from 'src/app/core/model/niveau.enum';
-import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service';
-import { EquipeService } from 'src/app/core/service/equipe.service';
+import { detailEquipe } from 'src/app/service/model/detailEquipe';
+import { Equipe } from 'src/app/service/model/equipe';
+import { FileTypeLabelMapping, Niveau } from 'src/app/service/model/niveau.enum';
+import { DetailEquipeService } from 'src/app/service/detail-equipe.service';
+import { EquipeService } from 'src/app/service/equipe.service';
 
 @Component({
   selector: 'app-add-equipe',
@@ -13,49 +13,62 @@ import { EquipeService } from 'src/app/core/service/equipe.service';
 })
 export class AddEquipeComponent implements OnInit {
   public equipe: Equipe;
-  selected = 'option2';
 
   public action:string;
   public file = FileTypeLabelMapping;
   public niveaux = Object.values(Niveau);
   equipeD : detailEquipe[] ;
+  listequipes : Equipe[];
 
   constructor(private detailService : DetailEquipeService, private equipeService:EquipeService,
    private route: Router, private currentRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.detailService.getDetailEquipe().subscribe(data=>{
       this.equipeD=JSON.parse(JSON.stringify(data))
-      console.log(this.equipeD)
     });
 
+  /*  this.equipeService.getEquipe().subscribe(data=>{
+      this.listequipes=JSON.parse(JSON.stringify(data))
+      for(let i = 0 ; i<= this.listequipes.length; i++){
+        for(let j = 0 ; j<= this.equipeD.length; j++){
+          if(this.listequipes[i].detailEquipe.idDetailEquipe == this.equipeD[j].idDetailEquipe ){
+            const index: number = this.listequipes.indexOf(this.equipe[i]);
+            this.equipeD.splice(index,1)
+            console.log(index) 
+                    }else{
+            
+          }
+    }}});*/
+    
     
     let id=this.currentRoute.snapshot.params['id'];
     if(id!=null){
-      this.action='Update'
+      this.action='UPDATE'
       this.equipeService.getEquipeById(id).subscribe(
         (data: Equipe)=>{this.equipe=data}
       )
     }else{
-      this.action='Add new'
+      this.action='ADD NEW'
       this.equipe=new Equipe()
 
     }
   }
   saveEquipe(){
-   if(this.action='Update'){
-      this.equipeService.updateEquipe(this.equipe).subscribe(
-        ()=>this.route.navigate(['equipe/listequipes']),
-        ()=>{console.log('error'),
-        ()=>{console.log('complete')}}
-
-      )
-    } else{
+   if(this.action='ADD NEW'){
     this.equipeService.addEquipe(this.equipe).subscribe(
       ()=>this.route.navigate(['equipe/listequipes']),
       ()=>{console.log('error'),
-      ()=>{console.log('complete')}
-      })}
+      ()=>{console.log('complete')}})
+    }
+     else{
+      this.equipeService.updateEquipe(this.equipe).subscribe(
+        ()=>this.route.navigate(['equipe/listequipes']),
+        ()=>{console.log('error'),
+        ()=>{console.log('complete')}})
+
   }
+}
 
 }

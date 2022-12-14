@@ -7,35 +7,42 @@
                     <h6 class="text-white text-capitalize ps-3">ADD DETAIL EQUIPE</h6>
                     </div>
                     <br>
-                    <form #f="ngForm" >
+                    
+                    <form [formGroup]="form" #f="ngForm" (ngSubmit)="saveDetail()">
                         <div class="form-group col-md-6 ">
                             <mat-label>Salle</mat-label>
-                            <input type="number" [(ngModel)]="detail.salle" name="salle"
-                            class="form-control"
-                            #t="ngModel">
-                            <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
-                                <div *ngIf="t.hasError('required')">this field is required</div>
-                                <div *ngIf="t.hasError('pattern')">error pattern</div>
+                            <input type="number" [(ngModel)]="detail.salle" formControlName ="salle" class="form-control">
+                            <div *ngIf="f.invalid && f.touched">
+                                <div class="alert alert-danger" *ngIf="form.get('salle').errors?.['required']">
+                                    Champs salle obligatoire.
+                                </div>
                             </div>
                         </div>
                         <br>
                         <div class="form-group col-md-6">
                             <mat-label>Thématique</mat-label>
-                            <input type="text" #p="ngModel" [(ngModel)]="detail.thematique" name="thematique" class="form-control" required>
-                            <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
-                            this field is required
-                            </div>
+                            <input type="text" [(ngModel)]="detail.thematique" formControlName="thematique" class="form-control" >
+                           <div *ngIf="f.invalid && f.touched">
+                                <div class="alert alert-danger" *ngIf="form.get('thematique').errors?.['required']">
+                                    Champs thématique obligatoire
+                                </div>
+                                <div class="alert alert-danger" *ngIf="form.get('thematique').errors?.['minlength']">
+                                    Champs thématique minimum 3 lettres
+                                </div>
+                            
+                            </div> 
                         </div> 
                         <br>
-                        <button class="btn btn-success" (click)="saveDetail()"
+                        <button mat-raised-button color="accent" type="submit"
                         [disabled]="f.invalid">
-                            save
+                            SAVE
                         </button>
-                        &nbsp;
-                        <button type="reset" class="btn btn-warning">
+                        <button mat-raised-button color="yellow"type="reset" class="btn btn-warning">
                             reset
                         </button>
                     </form>
+                    <br>
+
                 </div>
             </div>
         </div>

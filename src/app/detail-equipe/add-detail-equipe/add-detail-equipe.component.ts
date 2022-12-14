@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { detailEquipe } from 'src/app/core/model/detailEquipe';
-import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service';
+import { detailEquipe } from 'src/app/service/model/detailEquipe';
+import { DetailEquipeService } from 'src/app/service/detail-equipe.service';
 
 @Component({
   selector: 'app-add-detail-equipe',
@@ -9,14 +10,22 @@ import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service'
   styleUrls: ['./add-detail-equipe.component.css']
 })
 export class AddDetailEquipeComponent implements OnInit {
+ 
+
   public detail: detailEquipe;
   public action:string;
-
+  submitted;
+  form: FormGroup;
   constructor(private detailService:DetailEquipeService,
-    private route: Router, private currentRoute:ActivatedRoute) { }
+    private route: Router, private currentRoute:ActivatedRoute, private fb : FormBuilder) { }
 
   ngOnInit(): void {
-     
+    this.submitted = false;
+    this.form = this.fb.group ({
+      "salle": new FormControl("", Validators.required),
+      "thematique": new FormControl("",[Validators.required, Validators.minLength(3)])});
+
+
     let id=this.currentRoute.snapshot.params['id'];
     if(id!=null){
       this.action='Update'
@@ -28,21 +37,27 @@ export class AddDetailEquipeComponent implements OnInit {
       this.detail=new detailEquipe()
     }
   }
+
+  get f() { 
+    return this.form.getRawValue();
+ }
+
   saveDetail(){
-    if(this.action="Update"){
-      this.detailService.updateDetailEquipe(this.detail).subscribe(
+    this.submitted=true;
+    if(this.action='Add new'){
+      this.detailService.addDetailEquipe(this.detail).subscribe(
         ()=>this.route.navigate(['detailEquipe/listdetail']),
         ()=>{console.log('error'),
-        ()=>{console.log('complete')}}
+        ()=>{console.log('complete')}})
+      alert('Detail Equipe Added Successfully \n\n' + JSON.stringify("salle : "+  this.detail.salle + "thématique " + this.detail.thematique));
 
-      )
-    }
-    this.detailService.addDetailEquipe(this.detail).subscribe(
+    }else{
+    this.detailService.updateDetailEquipe(this.detail).subscribe(
       ()=>this.route.navigate(['detailEquipe/listdetail']),
       ()=>{console.log('error'),
-      ()=>{console.log('complete')}}
-
-    )
+      ()=>{console.log('complete')}})}
   }
+  
+
 
 }

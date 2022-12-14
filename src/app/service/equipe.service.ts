@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { detailEquipe } from '../model/detailEquipe';
-import { Equipe } from '../model/equipe';
+import { Equipe } from './model/equipe';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +9,7 @@ export class EquipeService {
   data:any
   constructor(private HttpClient:HttpClient) { }
   getEquipe(){
-    return this.HttpClient.get("http://localhost:8081/getequipe");
+    return this.HttpClient.get("http://localhost:8081/getequip");
   }
   addEquipe(e: Equipe){
     return this.HttpClient.post("http://localhost:8081/addequipe", e);

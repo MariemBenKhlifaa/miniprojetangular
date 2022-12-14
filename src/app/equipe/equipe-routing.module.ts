@@ -5,8 +5,8 @@ import { EquipeComponent } from './equipe.component';
 import { ListEquipesComponent } from './list-equipes/list-equipes.component';
 
 const routes: Routes = [{ path: '', component: EquipeComponent, children:[
-  { path:'listequipes', component: ListEquipesComponent},
-  { path:'addequipe', component: AddEquipeComponent},
+  {path:'listequipes', component: ListEquipesComponent},
+  {path:'addequipe', component: AddEquipeComponent},
   {path:'updateequipe/:id', component: AddEquipeComponent}]}];
 
 @NgModule({

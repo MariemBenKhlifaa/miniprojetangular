@@ -4,56 +4,65 @@
         <div class="card mx-10">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">LISTE EQUIPES</h6>
+              <div class="text-center text-white"><mat-icon>list_alt</mat-icon></div>
+              <h6 class="text-white text-center text-capitalize ps-3">LISTE EQUIPES</h6>
             </div>
-            <a style="float: right;" class="btn btn-info bg-gradient-primary shadow-primary"  routerLink="/equipe/addequipe">Add equipe</a>
           </div>
+            <br>
+            <link link="../style.css">
+            <div class="text-center">
+            <a  mat-raised-button color="accent" routerLink="/equipe/addequipe">
+              <mat-icon>add_box</mat-icon>  Equipe
+            </a>
+          </div>
+          
+
           <div class="card-body px-0 pb-2 " >
             <div class="table-responsive p-0">
 
-              <form class="col-md-6">
+              <form class="col-md-5">
                 <div class="search-hero">
                 <input type="text" [(ngModel)]="nomEquipe"
-                name="nomEquipe" class="form-control" placeholder="search by nomEquipe">
+                name="nomEquipe" class="form-control" placeholder="Search by nom equipe, niveau, detail..">
               </div>
               </form>
               <br>
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom équipe</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Niveau</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Détail equipe</th>
+                    <th class=" text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Nom équipe</th>
+                    <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Niveau</th>
+                    <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-15">Détail equipe</th>
                     <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
                 
                 <tbody *ngFor="let e of listequipes | filter: nomEquipe">
                   <tr >
+                    <td class="align-left text-capitalize text-center text-sm">
+                      <span class="text-sm text-secondary mb-0 ">{{e.nomEquipe}}</span>
+                    </td>
+
+                    <td class="align-middle text-center text-sm">
+                      <span class="text-sm text-secondary mb-0">{{e.niveau}}</span>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="text-sm text-secondary mb-0" > {{e.detailEquipe.salle + " " + e.detailEquipe.thematique}}</span>
+                    </td>
+                   
                     <td>
-                      <div class="d-flex px-2 py-1">
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm"></h6>
-                          <p class="text-xs text-secondary mb-0">{{e.nomEquipe}}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs text-secondary mb-0">{{e.niveau}}</span>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs text-secondary mb-0" > {{e.detailEquipe.salle + " " + e.detailEquipe.thematique}}</span>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                        <span class="text-xs text-secondary mb-0"></span>
-                      </td>
-                    <td>
-                        <button class="btn btn-sm btn-danger" (click)="delete(e)" >
-                          delete
+                        <button mat-raised-button	 color="warn" (click)="delete(e)" >
+                          
+                          <mat-icon>delete_outline</mat-icon>
+
                         </button>
-                        &nbsp;
-                        <a class="btn btn-sm btn-warning" [routerLink]="['/equipe/updateequipe', e.idEquipe]">
-                          update
+                        <a mat-raised-button color="yellow"  [routerLink]="['/equipe/updateequipe', e.idEquipe]">
+                          <mat-icon>update</mat-icon>
+
+                        </a>
+                        <a mat-stroked-button color="primary"  [routerLink]="['/chat', e.idEquipe]">
+                          <mat-icon>chat</mat-icon>
+
                         </a>
                       </td>
                   </tr>    
@@ -65,3 +74,5 @@
         </div>
       </div>
     </div>
+
+   

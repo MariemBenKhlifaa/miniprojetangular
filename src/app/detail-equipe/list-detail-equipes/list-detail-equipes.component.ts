@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { detailEquipe } from 'src/app/core/model/detailEquipe';
-import { DetailEquipeService } from 'src/app/core/service/detail-equipe.service';
+import { detailEquipe } from 'src/app/service/model/detailEquipe';
+import { DetailEquipeService } from 'src/app/service/detail-equipe.service';
 
 @Component({
   selector: 'app-list-detail-equipes',
@@ -17,7 +17,6 @@ export class ListDetailEquipesComponent implements OnInit {
   ngOnInit(): void {
     this.detailService.getDetailEquipe().subscribe(data=>{
       this.listdetail=JSON.parse(JSON.stringify(data));
-      console.log(this.listdetail);
     })
   }
   delete(e: detailEquipe) {
