@@ -3,5 +3,6 @@ export class Student{
     nom: String;
     prenom: String;
     option: String;
+    nom_equipe:String;
 
   }

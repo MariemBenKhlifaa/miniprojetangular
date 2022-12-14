@@ -10,9 +10,10 @@ export class StudentsService {
   data:any
   constructor(private HttpClient:HttpClient) { }
  getstudent(){
-  return this.HttpClient.get("http://localhost:8081/getetudiant");
-    //  console.log(this.students);
+  console.log(this.HttpClient.get("http://localhost:8081/getetudiant"));
        
+  return this.HttpClient.get("http://localhost:8081/getetudiant");
+    
     
 }
 addstudent(etudiant:any)
@@ -39,5 +40,10 @@ affichageequipeetudiant(ide:number)
 {
   return this.HttpClient.get("http://localhost:8081/getetud/"+ide)
 
+
+}
+sms(etudiant:Student)
+{
+  return this.HttpClient.post("http://localhost:8081/sendsms",etudiant)
 }
 }
