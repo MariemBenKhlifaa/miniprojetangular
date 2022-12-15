@@ -43,7 +43,7 @@ public getAllUniversite(): void {
 
 
   )
-  this.departementService.getalldep().subscribe(
+  this.departementService.getdetpart().subscribe(
     data=>
     {
       this.listdepartement=JSON.parse(JSON.stringify(data));
@@ -61,7 +61,7 @@ public onajouterEtAffecterlisteDepart(addForm: NgForm,id:number): void {
     (response: Universite) => {
       console.log(response);
       this.universiteService.getAllUniversite();
-      alert(this.departementService.getalldep());
+      alert(this.departementService.getdetpart());
       addForm.reset();
     },
     (error: HttpErrorResponse) => {
