@@ -2,8 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Universite } from 'src/app/core/model/universite';
-import { UniversiteService } from 'src/app/core/services/universite.service';
+import { Universite } from 'src/app/service/model/universite';
+import { UniversiteService } from 'src/app/service/universite.service';
 
 
 @Component({

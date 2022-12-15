@@ -6,7 +6,7 @@ import { UniversitesComponent } from './universites.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormUniversiteComponent } from './form-universite/form-universite.component';
 import { ListUniversiteComponent } from './list-universite/list-universite.component';
-import { UniversiteService } from '../core/services/universite.service';
+import { UniversiteService } from '../service/universite.service';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 

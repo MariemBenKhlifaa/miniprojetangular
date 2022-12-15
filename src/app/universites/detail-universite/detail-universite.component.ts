@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Departement } from 'src/app/core/model/departement';
-import { Universite } from 'src/app/core/model/universite';
-import { DepartementService } from 'src/app/core/services/departement.service';
-import { UniversiteService } from 'src/app/core/services/universite.service';
+import { Departement } from 'src/app/service/model/departement';
+import { Universite } from 'src/app/service/model/universite';
+import { DepartementService } from 'src/app/service/departement.service';
+import { UniversiteService } from 'src/app/service/universite.service';
 import { threadId } from 'worker_threads';
 
 @Component({
