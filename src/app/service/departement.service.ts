@@ -24,24 +24,24 @@ export class DepartementService {
   constructor(private HttpClient:HttpClient) { }
 
   getdetpart(){
-    return this.HttpClient.get("http://localhost:8082/getdep");
+    return this.HttpClient.get("http://localhost:8081/getdep");
       //console.log(this.departement);
   }
   adddetpart(departement:any)
   {
-    return this.HttpClient.post("http://localhost:8082/adddep",departement);
+    return this.HttpClient.post("http://localhost:8081/adddep",departement);
   }
 
   getDepartById(id:number){
-    return this.HttpClient.get("http://localhost:8082/getonedep/"+id)
+    return this.HttpClient.get("http://localhost:8081/getonedep/"+id)
   }
 
   deletedetpart(id:number)
   {
-    return this.HttpClient.delete("http://localhost:8082/deletedep/"+id);
+    return this.HttpClient.delete("http://localhost:8081/deletedep/"+id);
   }
   updatedetpart(id:number,departement:Departement){
-    return this.HttpClient.put("http://localhost:8082/updatedep/"+id,departement)
+    return this.HttpClient.put("http://localhost:8081/updatedep/"+id,departement)
   }
 
 
