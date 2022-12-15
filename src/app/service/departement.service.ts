@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Departement } from '../model/departement';
+import { Departement } from 'src/app/service/model/departement';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -19,7 +19,7 @@ export class DepartementService {
     }
 
     ];*/
-  
+
   data:any
   constructor(private HttpClient:HttpClient) { }
 
@@ -43,6 +43,6 @@ export class DepartementService {
   updatedetpart(id:number,departement:Departement){
     return this.HttpClient.put("http://localhost:8082/updatedep/"+id,departement)
   }
- 
+
 
 }

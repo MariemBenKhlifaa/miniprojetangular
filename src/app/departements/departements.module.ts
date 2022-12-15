@@ -5,7 +5,7 @@ import { DepartementsComponent } from './departements.component';
 import { FormDepartementComponent } from './form-departement/form-departement.component';
 import { ListDepartementComponent } from './list-departement/list-departement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DepartementService } from '../core/services/departement.service';
+import { DepartementService } from '../service/departement.service';
 import { UpdateDepartementComponent } from './update-departement/update-departement.component';
 
 

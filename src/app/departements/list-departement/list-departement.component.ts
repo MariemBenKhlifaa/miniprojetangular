@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Departement } from 'src/app/core/model/departement';
-import { DepartementService } from 'src/app/core/services/departement.service';
+import { Departement } from 'src/app/service/model/departement';
+import { DepartementService } from 'src/app/service/departement.service';
 @Component({
   selector: 'app-list-departement',
   templateUrl: './list-departement.component.html',
@@ -32,13 +32,13 @@ departement:Departement
   /*public update(departement:Departement){
     this.DepartementService.updatedetpart(this.router.snapshot.params['idDepart'],departement).subscribe(
       res=>{
-       
+
         console.log(this.router.snapshot.params['idDpart']);
         console.log(res);
-      
+
       }
     )
   }*/
-  
+
 
 }

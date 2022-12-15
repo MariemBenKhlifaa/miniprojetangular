@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Departement } from 'src/app/core/model/departement';
-import { DepartementService } from 'src/app/core/services/departement.service';
+import { Departement } from 'src/app/service/model/departement';
+import { DepartementService } from 'src/app/service/departement.service';
 
 @Component({
   selector: 'app-form-departement',

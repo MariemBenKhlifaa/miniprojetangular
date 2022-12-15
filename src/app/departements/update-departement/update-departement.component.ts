@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Departement } from 'src/app/core/model/departement';
-import { DepartementService } from 'src/app/core/services/departement.service';
+import { Departement } from 'src/app/service/model/departement';
+import { DepartementService } from 'src/app/service/departement.service';
 
 @Component({
   selector: 'app-update-departement',
